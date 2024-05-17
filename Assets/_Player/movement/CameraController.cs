@@ -13,8 +13,8 @@ public class CameraController : MonoBehaviour
     float maxFov = 140f;
     float wallRunTilt = 15f;
 
-    float wishTilt = 0;
-    float curTilt = 0;
+    float wishTilt = -90;
+    float curTilt = 90;
     Vector2 currentLook;
     Vector2 sway = Vector3.zero;
     float fov;
