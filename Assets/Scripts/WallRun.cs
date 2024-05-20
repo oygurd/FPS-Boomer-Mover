@@ -8,7 +8,7 @@ public class WallRun : MonoBehaviour
     [SerializeField] private Transform orientation;
     //mine
     PlayerMovement playerMovement;
-    bool jumpedAlreadyAfterWall = false
+    bool jumpedAlreadyAfterWall = false;
 
 
     [Header("Detection")]
@@ -62,19 +62,8 @@ public class WallRun : MonoBehaviour
     private void Update()
     {
         //walljust double jump
-        if (wallRight || wallLeft && !playerMovement.isGrounded && jumpedAlreadyAfterWall == false)
-        {
-            playerMovement.doubleJumps = 0;
-            playerMovement.canDoubleJump = false;
-            
-        }
-        else if (!wallRight || !wallLeft && !playerMovement.isGrounded)
-        {
-            playerMovement.doubleJumps = 1;
-            playerMovement.canDoubleJump = false;
-            jumpedAlreadyAfterWall = true;
-        }
-
+        
+       
 
         CheckWall();
 
@@ -119,34 +108,23 @@ public class WallRun : MonoBehaviour
         {
             if (wallLeft)
             {
-                Vector3 wallJumpMultiplier = new Vector3(1, 0);
+                Vector3 wallJumpMultiplier = new Vector3(0.5f, 0);
                 Vector3 wallRunJumpDirection = transform.up + leftWallHit.normal + orientation.forward + wallJumpMultiplier;
                 rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-                rb.AddForce(wallRunJumpDirection * wallRunJumpForce * 25, ForceMode.Force);
+                rb.AddForce(wallRunJumpDirection * wallRunJumpForce * 10, ForceMode.Force);
 
             }
             else if (wallRight)
             {
-                Vector3 wallJumpMultiplier = new Vector3(-1, 0);
+                Vector3 wallJumpMultiplier = new Vector3(-0.5f, 0);
                 Vector3 wallRunJumpDirection = transform.up + rightWallHit.normal + orientation.forward + wallJumpMultiplier;
                 rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-                rb.AddForce(wallRunJumpDirection * wallRunJumpForce * 25, ForceMode.Force);
+                rb.AddForce(wallRunJumpDirection * wallRunJumpForce * 10, ForceMode.Force);
             }
 
         }
 
-        /*if (!wallLeft || !wallRight && !playerMovement.isGrounded)
-        {
-            float smallJumpCd = 0.3f;
-            smallJumpCd -= 1 * Time.deltaTime;
-            if (smallJumpCd <= 0)
-            {
-                playerMovement.canDoubleJump = true;
-                playerMovement.doubleJumps = 1;
-
-            }
-
-        }*/
+        
     }
 
     void StopWallRun()

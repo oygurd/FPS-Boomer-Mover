@@ -26,8 +26,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public bool canDoubleJump = false;
     /*public bool isOnWallRight = false;
     public bool isOnWallLeft = false;*/
+    public int giveJumpAfterWall = 0;
 
-
+    Vector3 playerSpeed;
 
 
     [Header("Keybinds")]
@@ -74,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        wallrunScript = GetComponent<WallRun>();
     }
 
     private void Update()
@@ -82,10 +84,17 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         /*isOnWallRight = Physics.CheckSphere(orientation.right, groundDistance + 1, groundMask);
         isOnWallRight = Physics.CheckSphere(-orientation.right, groundDistance + 1, groundMask);*/
-        
+        if (wallrunScript.wallLeft == true || wallrunScript.wallRight == true)
+        {
+            giveJumpAfterWall = 1;
+        }
 
-
-
+        if (giveJumpAfterWall == 1)
+        {
+            canDoubleJump = true;
+            doubleJumps = 1;
+            doubleJump();
+        }
 
 
         MyInput();
@@ -135,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             doubleJumps = 0;
+            giveJumpAfterWall = 0;
         }
     }
 
