@@ -400,6 +400,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5102020395223302971, guid: feec1b47c237e814b92f35e4a530f861,
         type: 3}
+      propertyPath: wallRunJumpForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102020395223302971, guid: feec1b47c237e814b92f35e4a530f861,
+        type: 3}
       propertyPath: minimumJumpHeight
       value: 0.5
       objectReference: {fileID: 0}
