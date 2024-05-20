@@ -8,6 +8,8 @@ public class WallRun : MonoBehaviour
     [SerializeField] private Transform orientation;
     //mine
     PlayerMovement playerMovement;
+    bool jumpedAlreadyAfterWall = false
+
 
     [Header("Detection")]
     [SerializeField] private float wallDistance = .5f;
@@ -27,11 +29,13 @@ public class WallRun : MonoBehaviour
 
     public float tilt { get; private set; }
 
-    private bool wallLeft = false;
-    private bool wallRight = false;
+    public bool wallLeft = false;
+    public bool wallRight = false;
+    private bool wallBack = false;
 
     RaycastHit leftWallHit;
     RaycastHit rightWallHit;
+    RaycastHit wallBackHit;
 
     private Rigidbody rb;
 
@@ -48,12 +52,30 @@ public class WallRun : MonoBehaviour
 
     void CheckWall()
     {
-        wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallHit, wallDistance);
-        wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallHit, wallDistance);
+        wallLeft = Physics.Raycast(transform.position, -orientation.right.normalized, out leftWallHit, wallDistance);
+        wallRight = Physics.Raycast(transform.position, orientation.right.normalized, out rightWallHit, wallDistance);
+        wallBack = Physics.Raycast(transform.position, -orientation.forward, out wallBackHit, wallDistance);
+
+
     }
 
     private void Update()
     {
+        //walljust double jump
+        if (wallRight || wallLeft && !playerMovement.isGrounded && jumpedAlreadyAfterWall == false)
+        {
+            playerMovement.doubleJumps = 0;
+            playerMovement.canDoubleJump = false;
+            
+        }
+        else if (!wallRight || !wallLeft && !playerMovement.isGrounded)
+        {
+            playerMovement.doubleJumps = 1;
+            playerMovement.canDoubleJump = false;
+            jumpedAlreadyAfterWall = true;
+        }
+
+
         CheckWall();
 
         if (CanWallRun())
@@ -97,17 +119,34 @@ public class WallRun : MonoBehaviour
         {
             if (wallLeft)
             {
-                Vector3 wallRunJumpDirection = transform.up + leftWallHit.normal + orientation.forward;
+                Vector3 wallJumpMultiplier = new Vector3(1, 0);
+                Vector3 wallRunJumpDirection = transform.up + leftWallHit.normal + orientation.forward + wallJumpMultiplier;
                 rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
                 rb.AddForce(wallRunJumpDirection * wallRunJumpForce * 25, ForceMode.Force);
+
             }
             else if (wallRight)
             {
-                Vector3 wallRunJumpDirection = transform.up + rightWallHit.normal + orientation.forward;
+                Vector3 wallJumpMultiplier = new Vector3(-1, 0);
+                Vector3 wallRunJumpDirection = transform.up + rightWallHit.normal + orientation.forward + wallJumpMultiplier;
                 rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-                rb.AddForce(wallRunJumpDirection * wallRunJumpForce * 25 , ForceMode.Force);
+                rb.AddForce(wallRunJumpDirection * wallRunJumpForce * 25, ForceMode.Force);
             }
+
         }
+
+        /*if (!wallLeft || !wallRight && !playerMovement.isGrounded)
+        {
+            float smallJumpCd = 0.3f;
+            smallJumpCd -= 1 * Time.deltaTime;
+            if (smallJumpCd <= 0)
+            {
+                playerMovement.canDoubleJump = true;
+                playerMovement.doubleJumps = 1;
+
+            }
+
+        }*/
     }
 
     void StopWallRun()

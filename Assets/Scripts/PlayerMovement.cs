@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     float playerHeight = 2f;
+    WallRun wallrunScript;
+
 
     [SerializeField] Transform orientation;
 
@@ -20,6 +22,13 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jumping")]
     public float jumpForce = 5f;
+    public int doubleJumps = 1;
+    [SerializeField] public bool canDoubleJump = false;
+    /*public bool isOnWallRight = false;
+    public bool isOnWallLeft = false;*/
+
+
+
 
     [Header("Keybinds")]
     [SerializeField] KeyCode jumpKey = KeyCode.Space;
@@ -36,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundMask;
     [SerializeField] float groundDistance = 0.2f;
-    public bool isGrounded { get; private set; }
+    public bool isGrounded { get; set; }
 
     Vector3 moveDirection;
     Vector3 slopeMoveDirection;
@@ -69,8 +78,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        print(isGrounded); 
+        print(isGrounded);
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        /*isOnWallRight = Physics.CheckSphere(orientation.right, groundDistance + 1, groundMask);
+        isOnWallRight = Physics.CheckSphere(-orientation.right, groundDistance + 1, groundMask);*/
+        
+
+
+
+
 
         MyInput();
         ControlDrag();
@@ -79,8 +95,17 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
             Jump();
+            doubleJumps = 1;
         }
-
+        if (isGrounded == false && doubleJumps == 1)
+        {
+            canDoubleJump = true;
+            doubleJump();
+        }
+        else
+        {
+            canDoubleJump = false;
+        }
         slopeMoveDirection = Vector3.ProjectOnPlane(moveDirection, slopeHit.normal);
     }
 
@@ -99,7 +124,18 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         }
-       
+
+
+    }
+
+    void doubleJump()
+    {
+        if (Input.GetKeyDown(jumpKey) && canDoubleJump == true && !isGrounded)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            doubleJumps = 0;
+        }
     }
 
     void ControlSpeed()
