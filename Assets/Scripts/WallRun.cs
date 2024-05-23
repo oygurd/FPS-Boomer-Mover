@@ -7,6 +7,7 @@ public class WallRun : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private Transform orientation;
     //mine
+    public CameraChanges camerachanges;
     PlayerMovement playerMovement;
     bool jumpedAlreadyAfterWall = false;
 
@@ -48,6 +49,7 @@ public class WallRun : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         playerMovement = GetComponent<PlayerMovement>();
+        //fov = camerachanges.MinFov;
     }
 
     void CheckWall()
@@ -96,7 +98,8 @@ public class WallRun : MonoBehaviour
 
         rb.AddForce(Vector3.down * wallRunGravity, ForceMode.Force);
 
-        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, wallRunfov, wallRunfovTime * Time.deltaTime);
+        //cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, wallRunfov, wallRunfovTime * Time.deltaTime);
+        camerachanges.CameraFovChangUp();
 
         if (wallLeft)
             tilt = Mathf.Lerp(tilt, -camTilt, camTiltTime * Time.deltaTime);
@@ -106,18 +109,18 @@ public class WallRun : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (wallLeft)
+            if (wallLeft)   
             {
-                Vector3 wallJumpMultiplier = new Vector3(0.5f, 0);
-                Vector3 wallRunJumpDirection = transform.up - wallJumpMultiplier + leftWallHit.normal + orientation.forward;
+                //Vector3 wallJumpMultiplier = new Vector3(0, -1f) - transform.up;
+                Vector3 wallRunJumpDirection = transform.up /*- wallJumpMultiplier */+ leftWallHit.normal + orientation.forward;
                 rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
                 rb.AddForce(wallRunJumpDirection * wallRunJumpForce * 1, ForceMode.Impulse);
 
             }
             else if (wallRight)
             {
-                Vector3 wallJumpMultiplier = new Vector3(0, 0,4);
-                Vector3 wallRunJumpDirection = transform.up + rightWallHit.normal + orientation.forward;
+                //Vector3 wallJumpMultiplier = new Vector3(0, -1f);
+                Vector3 wallRunJumpDirection = transform.up /*- wallJumpMultiplier*/ + rightWallHit.normal + orientation.forward;
                 rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
                 rb.AddForce(wallRunJumpDirection * wallRunJumpForce * 1, ForceMode.Impulse);
             }
@@ -131,7 +134,7 @@ public class WallRun : MonoBehaviour
     {
         rb.useGravity = true;
 
-        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, fov, wallRunfovTime * Time.deltaTime);
+       // cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, fov, wallRunfovTime * Time.deltaTime);
         tilt = Mathf.Lerp(tilt, 0, camTiltTime * Time.deltaTime);
     }
 }

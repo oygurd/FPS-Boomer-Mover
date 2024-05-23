@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     /*public bool isOnWallRight = false;
     public bool isOnWallLeft = false;*/
     public int giveJumpAfterWall = 0;
+    public bool wasOnGroundBefore = false;
 
     Vector3 playerSpeed;
 
@@ -82,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
     {
         print(isGrounded);
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        wasOnGroundBefore = !isGrounded;
         /*isOnWallRight = Physics.CheckSphere(orientation.right, groundDistance + 1, groundMask);
         isOnWallRight = Physics.CheckSphere(-orientation.right, groundDistance + 1, groundMask);*/
         if (wallrunScript.wallLeft == true || wallrunScript.wallRight == true)
