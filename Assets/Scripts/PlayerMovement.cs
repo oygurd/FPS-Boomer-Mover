@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -81,6 +82,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        IncreasePlayerMass();
+
+
+
         print(isGrounded);
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         wasOnGroundBefore = !isGrounded;
@@ -194,4 +199,24 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(moveDirection.normalized * moveSpeed * movementMultiplier * airMultiplier, ForceMode.Acceleration);
         }
     }
+
+    public void IncreasePlayerMass()
+    {
+        if(!isGrounded)
+        {
+            float timer = 5;
+            timer -= 1 * Time.deltaTime;
+
+            if(!isGrounded && timer <= 0)
+            {
+                Physics.gravity = new Vector3(0, -25,0);
+            }
+        }
+        else
+        {
+            Physics.gravity = new Vector3(0, -15, 0);
+        }
+    }
+
+   
 }
