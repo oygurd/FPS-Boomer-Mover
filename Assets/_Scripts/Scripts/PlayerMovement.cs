@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     float playerHeight = 2f;
     WallRun wallrunScript;
 
+    public Vector3 rbVel;
 
     [SerializeField] Transform orientation;
 
@@ -84,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
     {
         IncreasePlayerMass();
 
-
+        rbVel = rb.velocity;
 
         print(isGrounded);
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
