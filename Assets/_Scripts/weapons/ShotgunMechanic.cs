@@ -15,6 +15,8 @@ public class ShotgunMechanic : MonoBehaviour
     public GameObject InstantiatedProjectile;
     public GameObject Exploder;
 
+    int instancedGameobjectId = 0;
+    string rayPointInstance;
 
     [SerializeField] LayerMask raycastLayer;
 
@@ -39,17 +41,24 @@ public class ShotgunMechanic : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && Ammo >= 0)
         {
             RaycastHit hitAnywhere;
+            Vector3 hitAnywhereVector;
             //Physics.Raycast(Camera.main.transform.forward, Camera.main.transform.forward ,  out hitAnywhere, Mathf.Infinity , raycastLayer);
             Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitAnywhere, 1000);
+            hitAnywhereVector = hitAnywhere.point;
             Debug.Log(hitAnywhere.transform);
 
             GameObject hitEmpty = new GameObject();
-            //hitEmpty.name = "hitPoint";
-            Instantiate(hitEmpty, hitAnywhere.point, transform.rotation);
 
+            instancedGameobjectId += 1;
+            
+            hitEmpty.name = "Ray Point Instance " + instancedGameobjectId.ToString();
+            GameObject.Find(hitEmpty.name);
+            Debug.Log(hitEmpty.name);
+            Instantiate(hitEmpty, hitAnywhere.point, transform.rotation);
             mainProjectile = Instantiate(InstantiatedProjectile, this.transform.position, this.transform.rotation);
-            mainProjectile.transform.LookAt(hitEmpty.transform.forward);
-            mainProjectile.GetComponent<Rigidbody>().AddForce(transform.forward * ProjectileSpeed * Time.deltaTime, ForceMode.Impulse);
+            //mainProjectile.transform.rotation = Quaternion.LookRotation(hitAnywhere.point);
+            mainProjectile.GetComponent<Transform>().LookAt(hitAnywhere.point);
+            mainProjectile.GetComponent<Rigidbody>().AddForce(mainProjectile.transform.forward * ProjectileSpeed * Time.deltaTime, ForceMode.Impulse);
             //mainProjectile.GetComponent<Rigidbody>().AddForce(hitEmpty.transform.forward * ProjectileSpeed * Time.deltaTime, ForceMode.Impulse);
 
 
