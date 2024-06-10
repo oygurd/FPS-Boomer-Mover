@@ -5,8 +5,9 @@ using UnityEngine;
 public class CheckProjectileHit : MonoBehaviour
 {
     [SerializeField] GameObject ExplosionPoint;
-
-
+    Rigidbody rb;
+    //GameObject self;
+    MeshRenderer self;
 
     public float groundSphereCheckRad;
 
@@ -28,7 +29,8 @@ public class CheckProjectileHit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        rb = GetComponent<Rigidbody>();
+        self = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -37,36 +39,53 @@ public class CheckProjectileHit : MonoBehaviour
         // hitEnemy = Physics.CheckSphere(transform.position, 1, RayLayerHit);
         //hitEnemy = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1, RayLayerHit);
         hitEnemy = Physics.SphereCast(transform.position, sphereCastRad, transform.forward, out hit, sphereCastMaxDis, enemyHitLayer);
-        hitEnvironment = Physics.SphereCast(transform.position, sphereCastRad, transform.forward, out environmentHit, sphereCastMaxDis, hitEnvironmentLayer);
+        hitEnvironment = Physics.SphereCast(transform.position, groundSphereCheckRad, transform.forward, out environmentHit, sphereCastMaxDis, hitEnvironmentLayer);
+
         Debug.Log(hitEnemy);
 
+        HitSomething();
 
+
+    }
+
+
+
+    public void HitSomething()
+    {
         if (hitEnemy)
-        {    
+        {
             Destroy(gameObject);
 
             EnemyBehaviour lowerEnemyHp = hit.collider.GetComponent<EnemyBehaviour>();
             lowerEnemyHp.enemyHealth -= 75;
-            hit.rigidbody.AddForce(Vector3.up * 10, ForceMode.Impulse);
+            hit.rigidbody.AddForce(Vector3.up * 15 + transform.forward * 4, ForceMode.Impulse);
 
         }
 
         if (hitEnvironment)
         {
-            sphereCastRad = 2.5f;
-            sphereCastMaxDis = 2;
-            /*if (hitEnemy)
+            rb.velocity = new Vector3(0, 0, 0);
+            self.enabled = false;
+            Collider[] enemyCol = Physics.OverlapSphere(transform.position, 4, enemyHitLayer);
+
+            foreach (Collider enemy in enemyCol)
             {
-                EnemyBehaviour lowerEnemyHp = hit.collider.GetComponent<EnemyBehaviour>();
-                lowerEnemyHp.enemyHealth -= 75;
-                hit.rigidbody.AddForce(Vector3.up * 10, ForceMode.Impulse);
+                if (enemy.GetComponent<EnemyBehaviour>() && sphereCastRad <= 4)
+                {
+                    sphereCastRad += 30 * Time.deltaTime;
+                }
+            }
+
+            if (enemyCol.Length == 0)
+            {
                 Destroy(gameObject);
-
-            }*/
-            sphereCastRad = 0.1f;
+            }
         }
-
     }
+
+
+
+
 
     private void OnDrawGizmos()
     {

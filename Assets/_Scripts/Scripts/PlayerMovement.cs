@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     [SerializeField] float airMultiplier = 0.4f;
     float movementMultiplier = 10f;
+    float maxSpeed = 20;
+
 
     [Header("Sprinting")]
     [SerializeField] float walkSpeed = 4f;
@@ -183,6 +185,10 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+        if (rb.velocity.magnitude > maxSpeed)
+        {
+            rb.velocity = rb.velocity.normalized * maxSpeed;
+        }
     }
 
     void MovePlayer()

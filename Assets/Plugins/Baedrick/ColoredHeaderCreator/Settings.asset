@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Settings
   m_EditorClassIdentifier: 
   headerSettings:
-    headerText: enemies
-    headerColor: {r: 0.745283, g: 0.024608415, b: 0.08430082, a: 1}
+    headerText: world colliders
+    headerColor: {r: 0.9150943, g: 0.5691627, b: 0.09064613, a: 1}
     textAlignmentOptions: 0
     fontStyleOptions: 0
     fontSize: 12.5
