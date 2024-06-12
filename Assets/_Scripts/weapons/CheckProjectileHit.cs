@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class CheckProjectileHit : MonoBehaviour
 {
+
+    [Header("Peojectile Properties")]
     [SerializeField] GameObject ExplosionPoint;
     Rigidbody rb;
-    //GameObject self;
     MeshRenderer self;
-
+    Collider selfCol;
     public float groundSphereCheckRad;
-
-
     public float sphereCastRad;
     public float sphereCastMaxDis;
+    TrailRenderer ProjectileTrail;
 
+    [Header("Enemy Properties")]
     [SerializeField] LayerMask enemyHitLayer;
     [SerializeField] LayerMask hitEnvironmentLayer;
-
-
     [SerializeField] bool hitEnemy = false;
     [SerializeField] bool hitEnvironment = false;
 
@@ -31,6 +30,8 @@ public class CheckProjectileHit : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         self = GetComponent<MeshRenderer>();
+        ProjectileTrail = GetComponentInChildren<TrailRenderer>();
+        selfCol = GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -48,6 +49,11 @@ public class CheckProjectileHit : MonoBehaviour
 
     }
 
+    private void OnDestroy()
+    {
+        transform.DetachChildren();
+
+    }
 
 
     public void HitSomething()
@@ -64,6 +70,7 @@ public class CheckProjectileHit : MonoBehaviour
 
         if (hitEnvironment)
         {
+
             rb.velocity = new Vector3(0, 0, 0);
             self.enabled = false;
             Collider[] enemyCol = Physics.OverlapSphere(transform.position, 4, enemyHitLayer);
@@ -73,6 +80,7 @@ public class CheckProjectileHit : MonoBehaviour
                 if (enemy.GetComponent<EnemyBehaviour>() && sphereCastRad <= 4)
                 {
                     sphereCastRad += 30 * Time.deltaTime;
+
                 }
             }
 
@@ -83,6 +91,11 @@ public class CheckProjectileHit : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+
+
+    }
 
 
 

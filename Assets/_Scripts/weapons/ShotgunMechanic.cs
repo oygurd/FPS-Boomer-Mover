@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShotgunMechanic : MonoBehaviour
 {
+
+    [Header("Ammo")]
     [SerializeField] int maxAmmo = 2;
     [SerializeField] float reloadTime;
     [SerializeField] int Ammo;
@@ -11,8 +13,9 @@ public class ShotgunMechanic : MonoBehaviour
     float Horizontal;
     float Vertical;
 
+    [Header("Player")]
     [SerializeField] Vector3 playerMomentum;
-     Rigidbody rb;
+    public Rigidbody rb;
 
 
     [Header("Projectile Properties")]
@@ -21,6 +24,7 @@ public class ShotgunMechanic : MonoBehaviour
     public GameObject mainProjectile;
     public GameObject InstantiatedProjectile;
     public GameObject Exploder;
+
 
     bool fire = false;
 
@@ -34,7 +38,6 @@ public class ShotgunMechanic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
 
     }
 
@@ -44,8 +47,8 @@ public class ShotgunMechanic : MonoBehaviour
         Horizontal = Input.GetAxisRaw("Horizontal");
         Vertical = Input.GetAxisRaw("Vertical");
 
-      
-       // playerMomentum = new Vector3( -transform.right.x * movementVector , 0 , transform.forward.z * vertical).normalized;  //new Vector3( movementVector ,0, movementVector);
+
+        // playerMomentum = new Vector3( -transform.right.x * movementVector , 0 , transform.forward.z * vertical).normalized;  //new Vector3( movementVector ,0, movementVector);
         Shoot();
 
     }
@@ -56,6 +59,7 @@ public class ShotgunMechanic : MonoBehaviour
         //GameObject newProjectile;
         if (Input.GetKeyDown(KeyCode.Mouse0) && Ammo >= 0)
         {
+
             bool rayHitCollider = false;
             RaycastHit hitAnywhere;
             Vector3 hitAnywhereVector;
@@ -69,6 +73,7 @@ public class ShotgunMechanic : MonoBehaviour
 
                 GameObject hitEmpty = new GameObject();
 
+
                 instancedGameobjectId += 1;
 
                 hitEmpty.name = "Ray Point Instance " + instancedGameobjectId.ToString();
@@ -78,8 +83,8 @@ public class ShotgunMechanic : MonoBehaviour
                 mainProjectile = Instantiate(InstantiatedProjectile, this.transform.position, this.transform.rotation);
                 //mainProjectile.transform.rotation = Quaternion.LookRotation(hitAnywhere.point);
                 mainProjectile.GetComponent<Transform>().LookAt(hitAnywhere.point);
-                mainProjectile.GetComponent<Rigidbody>().AddForce(mainProjectile.transform.forward * ProjectileSpeed * projectileSpeedMultiplier , ForceMode.Impulse);
-               
+                mainProjectile.GetComponent<Rigidbody>().AddForce(mainProjectile.transform.forward * ProjectileSpeed * projectileSpeedMultiplier + rb.transform.TransformDirection(rb.transform.position.x, rb.transform.position.y, rb.transform.position.z), ForceMode.Impulse);
+
             }
         }
 
