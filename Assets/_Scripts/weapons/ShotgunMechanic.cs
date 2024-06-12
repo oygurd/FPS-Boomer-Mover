@@ -83,7 +83,7 @@ public class ShotgunMechanic : MonoBehaviour
                 mainProjectile = Instantiate(InstantiatedProjectile, this.transform.position, this.transform.rotation);
                 //mainProjectile.transform.rotation = Quaternion.LookRotation(hitAnywhere.point);
                 mainProjectile.GetComponent<Transform>().LookAt(hitAnywhere.point);
-                mainProjectile.GetComponent<Rigidbody>().AddForce(mainProjectile.transform.forward * ProjectileSpeed * projectileSpeedMultiplier + rb.transform.TransformDirection(rb.transform.position.x, rb.transform.position.y, rb.transform.position.z), ForceMode.Impulse);
+                mainProjectile.GetComponent<Rigidbody>().AddForce(mainProjectile.transform.forward * ProjectileSpeed * projectileSpeedMultiplier + Camera.main.transform.InverseTransformVector(rb.velocity).x / 3  * Camera.main.transform.right, ForceMode.Impulse) ;
 
             }
         }
