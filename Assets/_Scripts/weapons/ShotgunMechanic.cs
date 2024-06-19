@@ -10,8 +10,6 @@ public class ShotgunMechanic : MonoBehaviour
     [SerializeField] float reloadTime;
     [SerializeField] int Ammo;
 
-    float Horizontal;
-    float Vertical;
 
     [Header("Player")]
     [SerializeField] Vector3 playerMomentum;
@@ -36,6 +34,8 @@ public class ShotgunMechanic : MonoBehaviour
 
     RaycastHit hit;
     // Start is called before the first frame update
+
+
     void Start()
     {
 
@@ -44,11 +44,7 @@ public class ShotgunMechanic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Horizontal = Input.GetAxisRaw("Horizontal");
-        Vertical = Input.GetAxisRaw("Vertical");
 
-
-        // playerMomentum = new Vector3( -transform.right.x * movementVector , 0 , transform.forward.z * vertical).normalized;  //new Vector3( movementVector ,0, movementVector);
         Shoot();
 
     }
@@ -57,7 +53,7 @@ public class ShotgunMechanic : MonoBehaviour
     public void Shoot()
     {
         //GameObject newProjectile;
-        if (Input.GetKeyDown(KeyCode.Mouse0) && Ammo >= 0)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Ammo > 0)
         {
 
             bool rayHitCollider = false;
@@ -83,7 +79,7 @@ public class ShotgunMechanic : MonoBehaviour
                 mainProjectile = Instantiate(InstantiatedProjectile, this.transform.position, this.transform.rotation);
                 //mainProjectile.transform.rotation = Quaternion.LookRotation(hitAnywhere.point);
                 mainProjectile.GetComponent<Transform>().LookAt(hitAnywhere.point);
-                mainProjectile.GetComponent<Rigidbody>().AddForce(mainProjectile.transform.forward * ProjectileSpeed * projectileSpeedMultiplier + Camera.main.transform.InverseTransformVector(rb.velocity).x / 3  * Camera.main.transform.right, ForceMode.Impulse) ;
+                mainProjectile.GetComponent<Rigidbody>().AddForce(mainProjectile.transform.forward * ProjectileSpeed * projectileSpeedMultiplier + Camera.main.transform.InverseTransformVector(rb.velocity).x / 3 * Camera.main.transform.right, ForceMode.Impulse);
 
             }
         }
