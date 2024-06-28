@@ -1,13 +1,13 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1102 &-8265152816165979825
+--- !u!1102 &-4732030897926892537
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Armature|weapon idle
+  m_Name: hands lever pull_001
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -20,34 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 4759262571494351243, guid: b81109f9591f97249baea25345f21fd2,
-    type: 3}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &-7481012259082035644
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Armature|Lever pull
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: -5611442561004300102, guid: b81109f9591f97249baea25345f21fd2,
+  m_Motion: {fileID: -4550709583017594443, guid: 32e34501140447249817d0b137183218,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -60,13 +33,13 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Spinfusor Shotgun
+  m_Name: Hands
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
-    m_StateMachine: {fileID: 43456088940580782}
+    m_StateMachine: {fileID: 3492812420659315198}
     m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
@@ -76,7 +49,7 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1107 &43456088940580782
+--- !u!1107 &3492812420659315198
 AnimatorStateMachine:
   serializedVersion: 6
   m_ObjectHideFlags: 1
@@ -86,20 +59,14 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: -7481012259082035644}
-    m_Position: {x: 340, y: 50, z: 0}
+    m_State: {fileID: -4732030897926892537}
+    m_Position: {x: 340, y: 110, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 6097233223655280595}
-    m_Position: {x: 340, y: 130, z: 0}
+    m_State: {fileID: 5928019342037966552}
+    m_Position: {x: 340, y: 290, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -8265152816165979825}
-    m_Position: {x: 330, y: 190, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 8501351318133717364}
-    m_Position: {x: 310, y: 260, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 3471243241466963555}
-    m_Position: {x: 330, y: 330, z: 0}
+    m_State: {fileID: 6490186229551490468}
+    m_Position: {x: 340, y: 200, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -109,15 +76,15 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 8501351318133717364}
---- !u!1102 &3471243241466963555
+  m_DefaultState: {fileID: 6490186229551490468}
+--- !u!1102 &5928019342037966552
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Armature|Weapon shooting
+  m_Name: Hands Shoot_001
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -130,21 +97,21 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -4941022222107442610, guid: b81109f9591f97249baea25345f21fd2,
+  m_Motion: {fileID: -5453611215896879116, guid: 32e34501140447249817d0b137183218,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &6097233223655280595
+--- !u!1102 &6490186229551490468
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Armature|RetopoFlow_001Action
+  m_Name: Hands Reload_001
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -157,35 +124,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7865903645700851799, guid: b81109f9591f97249baea25345f21fd2,
-    type: 3}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &8501351318133717364
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Armature|Weapon reload
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 9176017154336697657, guid: b81109f9591f97249baea25345f21fd2,
-    type: 3}
+  m_Motion: {fileID: 7400000, guid: 764ba1d884b3d0443baa67af4d1c313e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
