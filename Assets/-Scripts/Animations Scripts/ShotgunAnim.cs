@@ -28,7 +28,7 @@ public class ShotgunAnim : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && shotgunScript.Ammo > 0 && shotgunScript.canShoot == true)
         {
             shotgunAnims.SetBool("WeaponShoot", true);
-            HandsAnims.SetTrigger("handsShoot");
+            HandsAnims.SetBool("handShoot", true);
             /*if(shotgunScript.Ammo == 0)
             {
                 shotgunAnims.SetBool("OutOfAmmo", true);
@@ -57,6 +57,8 @@ public class ShotgunAnim : MonoBehaviour
 
         shotgunAnims.SetBool("WeaponReload", false);
         shotgunAnims.SetBool("WeaponShoot", false);
+        shotgunAnims.SetBool("HandsReload", false);
+
 
         shotgunAnims.SetBool("Idle", true);
         shotgunScript.Ammo = shotgunScript.maxAmmo;
@@ -71,6 +73,7 @@ public class ShotgunAnim : MonoBehaviour
     public void CanShoot()
     {
         shotgunScript.canShoot = true;
+        HandsAnims.SetBool("handShoot", false);
 
     }
 
@@ -78,6 +81,7 @@ public class ShotgunAnim : MonoBehaviour
     public void ActivateLeverPull()
     {
         shotgunAnims.SetBool("WeaponShoot", false);
+
     }
 
     public void ReloadBullets()
