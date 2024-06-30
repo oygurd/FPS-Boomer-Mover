@@ -28,6 +28,7 @@ public class ShotgunAnim : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && shotgunScript.Ammo > 0 && shotgunScript.canShoot == true)
         {
             shotgunAnims.SetBool("WeaponShoot", true);
+            HandsAnims.SetTrigger("handsShoot");
             /*if(shotgunScript.Ammo == 0)
             {
                 shotgunAnims.SetBool("OutOfAmmo", true);
@@ -39,6 +40,7 @@ public class ShotgunAnim : MonoBehaviour
         if (shotgunScript.Ammo == 0 && shotgunScript.Ammo != shotgunScript.maxAmmo  || Input.GetKeyDown(KeyCode.R))
         {
             shotgunAnims.SetBool("WeaponReload", true);
+            HandsAnims.SetTrigger("HandsReload");
             shotgunAnims.SetBool("Idle", false);
             shotgunScript.canShoot = false;
 
