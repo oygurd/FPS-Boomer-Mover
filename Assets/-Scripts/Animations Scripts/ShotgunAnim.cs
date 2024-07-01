@@ -39,6 +39,7 @@ public class ShotgunAnim : MonoBehaviour
         {
             shotgunAnims.SetBool("shoot", false);
 
+
         }
 
         if (shotgunScript.Ammo == 0 && shotgunScript.Ammo != shotgunScript.maxAmmo && shotgunAnims.GetCurrentAnimatorStateInfo(1).IsName("Idle") || Input.GetKeyDown(KeyCode.R) )
@@ -92,6 +93,8 @@ public class ShotgunAnim : MonoBehaviour
 
     public void ReloadBullets()
     {
+        shotgunScript.canShoot = true;
+
         shotgunScript.Ammo = 2;
         AmmoCountUI.text = shotgunScript.Ammo.ToString();
         shotgunAnims.SetBool("reload", false);
