@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float airMultiplier = 0.4f;
     float movementMultiplier = 10f;
     float maxSpeed = 20;
-
+    public Vector3 currentVelocitySave;
 
     [Header("Sprinting")]
     [SerializeField] float walkSpeed = 4f;
@@ -85,9 +85,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+
         IncreasePlayerMass();
 
         rbVel = rb.velocity;
+        currentVelocitySave = rbVel;
 
         print(isGrounded);
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -152,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(jumpKey) && canDoubleJump == true && !isGrounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            rb.AddForce(transform.up * jumpForce + Camera.main.transform.forward * 2, ForceMode.Impulse);
             doubleJumps = 0;
             giveJumpAfterWall = 0;
         }
@@ -209,14 +211,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void IncreasePlayerMass()
     {
-        if(!isGrounded)
+        if (!isGrounded)
         {
             float timer = 5;
             timer -= 1 * Time.deltaTime;
 
-            if(!isGrounded && timer <= 0)
+            if (!isGrounded && timer <= 0)
             {
-                Physics.gravity = new Vector3(0, -25,0);
+                Physics.gravity = new Vector3(0, -25, 0);
             }
         }
         else
@@ -225,5 +227,5 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-   
+
 }

@@ -115,7 +115,7 @@ public class WallRun : MonoBehaviour
                 Vector3 wallRunJumpDirection = transform.up /*- wallJumpMultiplier */+ leftWallHit.normal + orientation.forward;
                 rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
                 rb.AddForce(wallRunJumpDirection * wallRunJumpForce * 1, ForceMode.Impulse);
-
+                playerMovement.doubleJumps += 1;
             }
             else if (wallRight)
             {
@@ -123,6 +123,8 @@ public class WallRun : MonoBehaviour
                 Vector3 wallRunJumpDirection = transform.up /*- wallJumpMultiplier*/ + rightWallHit.normal + orientation.forward;
                 rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
                 rb.AddForce(wallRunJumpDirection * wallRunJumpForce * 1, ForceMode.Impulse);
+                playerMovement.doubleJumps += 1;
+
             }
 
         }
