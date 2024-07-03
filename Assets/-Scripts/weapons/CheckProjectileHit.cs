@@ -20,7 +20,7 @@ public class CheckProjectileHit : MonoBehaviour
     [SerializeField] LayerMask hitEnvironmentLayer;
     [SerializeField] bool hitEnemy = false;
     [SerializeField] bool hitEnvironment = false;
-
+    bool hitEnemyRange;
     public EnemyBehaviour enemyScript;
     RaycastHit hit;
     RaycastHit environmentHit;
@@ -64,7 +64,7 @@ public class CheckProjectileHit : MonoBehaviour
 
             EnemyBehaviour lowerEnemyHp = hit.collider.GetComponent<EnemyBehaviour>();
             lowerEnemyHp.enemyHealth -= 75;
-            hit.rigidbody.AddForce(Vector3.up * 15 + transform.forward * 4, ForceMode.Impulse);
+            hit.rigidbody.AddForce(Vector3.up * 20 + transform.forward * 5, ForceMode.Impulse);
 
         }
 
@@ -77,11 +77,32 @@ public class CheckProjectileHit : MonoBehaviour
 
             foreach (Collider enemy in enemyCol)
             {
-                if (enemy.GetComponent<EnemyBehaviour>() && sphereCastRad <= 4)
+                if (enemy.GetComponent<EnemyBehaviour>() /*&& sphereCastRad <= 4*/)
                 {
-                    sphereCastRad += 30 * Time.deltaTime;
+                    transform.LookAt(enemy.transform.position);
+                    RaycastHit hitenemydis;
+
+                    Debug.Log("yes!, an enemy!");
+                    // RaycastHit hit;
+
+                    hitEnemyRange = Physics.Raycast(transform.position, transform.forward, out hitenemydis, Mathf.Infinity, enemyHitLayer);
+                    Debug.DrawRay(transform.position, enemy.transform.position * hitenemydis.distance, Color.red);
+                    if (hitEnemyRange)
+                    {
+
+                        hitenemydis.rigidbody.AddForce(Vector3.up * 20 + transform.forward * 5, ForceMode.Impulse);
+
+                    }
+                    Debug.Log(hitEnemyRange);
+                    Debug.Log(enemyCol.Length);
+                    // sphereCastRad += 30 * Time.deltaTime;
+
+
+                    //enemy.GetComponent<Rigidbody>().AddForce(enemy. * 2.3f + transform.forward * 1.3f,ForceMode.Impulse);
+                    //enemy.attachedRigidbody.AddForce(Vector3.up * 20 + transform.forward * 5, ForceMode.Impulse);
 
                 }
+
             }
 
             if (enemyCol.Length == 0)
@@ -93,7 +114,6 @@ public class CheckProjectileHit : MonoBehaviour
 
     private void FixedUpdate()
     {
-
 
     }
 

@@ -78,19 +78,19 @@ public class ShotgunMechanic : MonoBehaviour
                 Debug.Log(hitAnywhere.transform);
 
                 GameObject hitEmpty = new GameObject();
+                //hitEmpty.gameObject.AddComponent<BoxCollider>();
 
+               // instancedGameobjectId += 1;
 
-                instancedGameobjectId += 1;
-
-                hitEmpty.name = "Ray Point Instance " + instancedGameobjectId.ToString();
+               // hitEmpty.name = "Ray Point Instance " + instancedGameobjectId.ToString();
                 GameObject.Find(hitEmpty.name);
                 Debug.Log(hitEmpty.name);
-                Instantiate(hitEmpty, hitAnywhere.point, transform.rotation);
+                //Instantiate(hitEmpty, hitAnywhere.point, transform.rotation);
                 mainProjectile = Instantiate(InstantiatedProjectile, this.transform.position, this.transform.rotation);
                 //mainProjectile.transform.rotation = Quaternion.LookRotation(hitAnywhere.point);
                 mainProjectile.GetComponent<Transform>().LookAt(hitAnywhere.point);
                 mainProjectile.GetComponent<Rigidbody>().AddForce(mainProjectile.transform.forward * ProjectileSpeed * projectileSpeedMultiplier + Camera.main.transform.InverseTransformVector(rb.velocity).x / 3 * Camera.main.transform.right, ForceMode.Impulse);
-
+                Destroy(hitEmpty);  
             }
         }
 
