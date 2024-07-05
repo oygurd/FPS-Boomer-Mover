@@ -295,6 +295,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExplosionPoint: {fileID: 1966374318637261091, guid: 56a5b847da8b2f74598a033f179d3510,
     type: 3}
+  explosionPrefab: {fileID: 8211712119534345075, guid: a54ee6f121472bc43818f941a3b0e26f,
+    type: 3}
   groundSphereCheckRad: 0.05
   sphereCastRad: 0.1
   sphereCastMaxDis: 1

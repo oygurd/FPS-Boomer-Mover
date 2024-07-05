@@ -7,6 +7,7 @@ public class CheckProjectileHit : MonoBehaviour
 
     [Header("Peojectile Properties")]
     [SerializeField] GameObject ExplosionPoint;
+    [SerializeField] GameObject explosionPrefab;
     Rigidbody rb;
     MeshRenderer self;
     Collider selfCol;
@@ -44,7 +45,7 @@ public class CheckProjectileHit : MonoBehaviour
 
         Debug.Log(hitEnemy);
 
-        HitSomething();
+        //HitSomething();
 
 
     }
@@ -62,6 +63,10 @@ public class CheckProjectileHit : MonoBehaviour
         {
             Destroy(gameObject);
 
+            ExplosionPoint = Instantiate(explosionPrefab, transform.position, transform.rotation);
+            VFXanimationsController startExplosion = ExplosionPoint.GetComponent<VFXanimationsController>();
+            startExplosion.ExplosionStart();
+
             EnemyBehaviour lowerEnemyHp = hit.collider.GetComponent<EnemyBehaviour>();
             lowerEnemyHp.enemyHealth -= 75;
             hit.rigidbody.AddForce(Vector3.up * 20 + transform.forward * 5, ForceMode.Impulse);
@@ -70,6 +75,10 @@ public class CheckProjectileHit : MonoBehaviour
 
         if (hitEnvironment)
         {
+
+            ExplosionPoint = Instantiate(explosionPrefab, transform.position, transform.rotation);
+            VFXanimationsController startExplosion = ExplosionPoint.GetComponent<VFXanimationsController>();
+            startExplosion.ExplosionStart();
 
             rb.velocity = new Vector3(0, 0, 0);
             self.enabled = false;
@@ -89,7 +98,8 @@ public class CheckProjectileHit : MonoBehaviour
                     Debug.DrawRay(transform.position, enemy.transform.position * hitenemydis.distance, Color.red);
                     if (hitEnemyRange)
                     {
-
+                        EnemyBehaviour lowerEnemyHp = hitenemydis.collider.GetComponent<EnemyBehaviour>();
+                        lowerEnemyHp.enemyHealth -= 75;
                         hitenemydis.rigidbody.AddForce(Vector3.up * 20 + transform.forward * 5, ForceMode.Impulse);
 
                     }
@@ -114,7 +124,7 @@ public class CheckProjectileHit : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        HitSomething();
     }
 
 
