@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.VFX;
 public class ShotgunMechanic : MonoBehaviour
 {
 
@@ -25,6 +25,8 @@ public class ShotgunMechanic : MonoBehaviour
     public GameObject Exploder;
 
 
+    
+
     bool fire = false;
 
 
@@ -40,6 +42,7 @@ public class ShotgunMechanic : MonoBehaviour
     void Start()
     {
         canShoot = true;
+        
     }
 
     // Update is called once per frame
@@ -64,7 +67,8 @@ public class ShotgunMechanic : MonoBehaviour
         //GameObject newProjectile;
         if (Input.GetKeyDown(KeyCode.Mouse0) && Ammo > 0 && canShoot == true)
         {
-            Ammo -= 1;
+            
+            //Ammo -= 1;
 
             bool rayHitCollider = false;
             RaycastHit hitAnywhere;
@@ -78,11 +82,7 @@ public class ShotgunMechanic : MonoBehaviour
                 Debug.Log(hitAnywhere.transform);
 
                 GameObject hitEmpty = new GameObject();
-                //hitEmpty.gameObject.AddComponent<BoxCollider>();
-
-               // instancedGameobjectId += 1;
-
-               // hitEmpty.name = "Ray Point Instance " + instancedGameobjectId.ToString();
+                
                 GameObject.Find(hitEmpty.name);
                 Debug.Log(hitEmpty.name);
                 //Instantiate(hitEmpty, hitAnywhere.point, transform.rotation);
@@ -93,8 +93,6 @@ public class ShotgunMechanic : MonoBehaviour
                 Destroy(hitEmpty);  
             }
         }
-
-
     }
 
 
@@ -103,7 +101,7 @@ public class ShotgunMechanic : MonoBehaviour
 
     public void Reload()
     {
-        if (Ammo == 0 || Input.GetKeyDown(KeyCode.R) && Ammo <= maxAmmo)
+        if (Ammo == 0  || Input.GetKeyDown(KeyCode.R) && Ammo <= maxAmmo)
         {
             //do animation
         }

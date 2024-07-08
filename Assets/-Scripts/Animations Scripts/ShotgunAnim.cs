@@ -9,6 +9,7 @@ public class ShotgunAnim : MonoBehaviour
 
     Animator shotgunAnims;
     public ShotgunMechanic shotgunScript;
+    [SerializeField] bool canReload = false;
 
     public TMP_Text AmmoCountUI;
 
@@ -28,35 +29,26 @@ public class ShotgunAnim : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && shotgunScript.Ammo > 0 && shotgunScript.canShoot == true)
         {
             shotgunAnims.SetBool("shoot", true);
-            /*if(shotgunScript.Ammo == 0)
-            {
-                shotgunAnims.SetBool("OutOfAmmo", true);
-                shotgunAnims.SetBool("WeaponReload", true);
-                shotgunAnims.SetBool("Idle", false);
-            }*/
-        }
-        else
-        {
-            shotgunAnims.SetBool("shoot", false);
 
+            shotgunScript.Ammo -= 1;
+            shotgunScript.canShoot = false;
 
         }
 
-        if (shotgunScript.Ammo == 0 && shotgunScript.Ammo != shotgunScript.maxAmmo && shotgunAnims.GetCurrentAnimatorStateInfo(1).IsName("Idle") || Input.GetKeyDown(KeyCode.R) )
+        if (shotgunScript.Ammo == 0 && shotgunScript.Ammo != shotgunScript.maxAmmo /*&& shotgunAnims.GetBool("Idle") == true*/ || Input.GetKeyDown(KeyCode.R))
         {
-           
+
             shotgunAnims.SetBool("reload", true);
 
 
             shotgunScript.canShoot = false;
 
         }
-        else
+        /*else
         {
             shotgunAnims.SetTrigger("lever");
             shotgunAnims.SetTrigger("EndLoad");
-
-        }
+        }*/
 
 
 
@@ -66,8 +58,10 @@ public class ShotgunAnim : MonoBehaviour
     public void IdleWeapon()
     {
         shotgunScript.canShoot = true;
-
         shotgunAnims.SetTrigger("EndLoad");
+        shotgunAnims.ResetTrigger("Lever");
+        shotgunAnims.SetBool("shoot", false);
+
         //shotgunAnims.SetBool("reload", false);
 
         // shotgunScript.Ammo = shotgunScript.maxAmmo;
@@ -76,6 +70,7 @@ public class ShotgunAnim : MonoBehaviour
     public void CantShoot()
     {
         shotgunScript.canShoot = false;
+        canReload = false;
 
     }
 
