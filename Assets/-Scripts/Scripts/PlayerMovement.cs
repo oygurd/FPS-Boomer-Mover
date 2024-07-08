@@ -5,10 +5,15 @@ using UnityEditor;
 
 public class PlayerMovement : MonoBehaviour
 {
+    PlayerComponentVfx playervfx;
+
+
+
     float playerHeight = 2f;
     WallRun wallrunScript;
 
     public Vector3 rbVel;
+    [SerializeField] float rbMag;
 
     [SerializeField] Transform orientation;
 
@@ -26,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jumping")]
     public float jumpForce = 5f;
+    float doubleJumpMult = 2f;
     public int doubleJumps = 1;
     [SerializeField] public bool canDoubleJump = false;
     /*public bool isOnWallRight = false;
@@ -78,6 +84,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        playervfx = GetComponent<PlayerComponentVfx>();
+
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         wallrunScript = GetComponent<WallRun>();
@@ -89,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
         IncreasePlayerMass();
 
         rbVel = rb.velocity;
+        rbMag = rb.velocity.magnitude / 5f;
         currentVelocitySave = rbVel;
 
         print(isGrounded);
@@ -126,6 +135,8 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             canDoubleJump = false;
+            playervfx.showParticle = false;
+
         }
         slopeMoveDirection = Vector3.ProjectOnPlane(moveDirection, slopeHit.normal);
     }
@@ -154,9 +165,10 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(jumpKey) && canDoubleJump == true && !isGrounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-            rb.AddForce(transform.up * jumpForce + Camera.main.transform.forward * 2, ForceMode.Impulse);
+            rb.AddForce(transform.up * jumpForce + Camera.main.transform.forward * 3, ForceMode.Impulse);
             doubleJumps = 0;
             giveJumpAfterWall = 0;
+            playervfx.showParticle = true;
         }
     }
 
@@ -218,9 +230,10 @@ public class PlayerMovement : MonoBehaviour
 
             if (!isGrounded && timer <= 0)
             {
-                Physics.gravity = new Vector3(0, -25, 0);
+                Physics.gravity = new Vector3(0, -35, 0);
             }
         }
+
         else
         {
             Physics.gravity = new Vector3(0, -15, 0);
