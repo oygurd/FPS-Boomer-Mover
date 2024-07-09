@@ -29,12 +29,7 @@ public class PlayerComponentVfx : MonoBehaviour
         {
             DoubleJumpEffect.Play();
         }
-        else
-        {
-            DoubleJumpEffect.Stop();
-            showParticle = false;
-
-        }
+        
 
     }
 }

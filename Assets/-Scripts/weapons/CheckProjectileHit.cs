@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class CheckProjectileHit : MonoBehaviour
 {
 
@@ -62,13 +62,14 @@ public class CheckProjectileHit : MonoBehaviour
         if (hitEnemy)
         {
             Destroy(gameObject);
-
+            float hitTimer = 0.01f;
             ExplosionPoint = Instantiate(explosionPrefab, transform.position, transform.rotation);
             VFXanimationsController startExplosion = ExplosionPoint.GetComponent<VFXanimationsController>();
             startExplosion.ExplosionStart();
-
             EnemyBehaviour lowerEnemyHp = hit.collider.GetComponent<EnemyBehaviour>();
-            lowerEnemyHp.enemyHealth -= 75;
+            lowerEnemyHp.GetHit();
+
+
             hit.rigidbody.AddForce(Vector3.up * 20 + transform.forward * 5, ForceMode.Impulse);
 
         }
@@ -99,7 +100,8 @@ public class CheckProjectileHit : MonoBehaviour
                     if (hitEnemyRange)
                     {
                         EnemyBehaviour lowerEnemyHp = hitenemydis.collider.GetComponent<EnemyBehaviour>();
-                        lowerEnemyHp.enemyHealth -= 75;
+                        lowerEnemyHp.GetHit();
+
                         hitenemydis.rigidbody.AddForce(Vector3.up * 20 + transform.forward * 5, ForceMode.Impulse);
 
                     }

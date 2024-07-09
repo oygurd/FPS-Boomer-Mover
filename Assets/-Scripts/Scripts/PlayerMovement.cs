@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     [SerializeField] float airMultiplier = 0.4f;
     float movementMultiplier = 10f;
-    float maxSpeed = 20;
+    float maxSpeed = 25;
     public Vector3 currentVelocitySave;
 
     [Header("Sprinting")]
@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Drag")]
     [SerializeField] float groundDrag = 6f;
-    [SerializeField] float airDrag = 2f;
+    [SerializeField] float airDrag = 3f;
 
     float horizontalMovement;
     float verticalMovement;
@@ -57,6 +57,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundMask;
     [SerializeField] float groundDistance = 0.2f;
+
+    Collider PlayerCollider;
+
     public bool isGrounded { get; set; }
 
     Vector3 moveDirection;
@@ -84,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        PlayerCollider = GetComponent<Collider>();
         playervfx = GetComponent<PlayerComponentVfx>();
 
         rb = GetComponent<Rigidbody>();
@@ -93,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        maxSpeed = maxSpeed += rb.velocity.magnitude / 1.5f;
 
         IncreasePlayerMass();
 
@@ -148,13 +153,24 @@ public class PlayerMovement : MonoBehaviour
 
         moveDirection = orientation.forward * verticalMovement + orientation.right * horizontalMovement;
     }
+    void ControlSpeed()
+    {
+        if (Input.GetKey(sprintKey) && isGrounded)
+        {
+            moveSpeed = Mathf.Lerp(moveSpeed, sprintSpeed, acceleration * Time.deltaTime);
 
+        }
+        else
+        {
+            moveSpeed = Mathf.Lerp(moveSpeed, walkSpeed, acceleration * Time.deltaTime);
+        }
+    }
     void Jump()
     {
         if (isGrounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            rb.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
         }
 
 
@@ -165,24 +181,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(jumpKey) && canDoubleJump == true && !isGrounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-            rb.AddForce(transform.up * jumpForce + Camera.main.transform.forward * 3, ForceMode.Impulse);
+            rb.AddForce(transform.up * jumpForce + Camera.main.transform.forward * 2, ForceMode.VelocityChange);
             doubleJumps = 0;
             giveJumpAfterWall = 0;
             playervfx.showParticle = true;
         }
     }
 
-    void ControlSpeed()
-    {
-        if (Input.GetKey(sprintKey) && isGrounded)
-        {
-            moveSpeed = Mathf.Lerp(moveSpeed, sprintSpeed, acceleration * Time.deltaTime);
-        }
-        else
-        {
-            moveSpeed = Mathf.Lerp(moveSpeed, walkSpeed, acceleration * Time.deltaTime);
-        }
-    }
+
 
     void ControlDrag()
     {
