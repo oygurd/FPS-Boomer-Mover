@@ -26,6 +26,9 @@ public class CheckProjectileHit : MonoBehaviour
     RaycastHit hit;
     RaycastHit environmentHit;
 
+    [Header("UI")]
+    [SerializeField] GameObject hitmarker;
+
     // Start is called before the first frame update
     void Start()
     {
