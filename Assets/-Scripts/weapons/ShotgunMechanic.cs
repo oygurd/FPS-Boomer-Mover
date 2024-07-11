@@ -47,7 +47,8 @@ public class ShotgunMechanic : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
+        Shoot();
         if (!canShoot)
         {
             betweenShots -= 1 * Time.deltaTime;
@@ -57,7 +58,7 @@ public class ShotgunMechanic : MonoBehaviour
             betweenShots = 1.1f;
         }
 
-        Shoot();
+       
 
     }
 
@@ -89,22 +90,9 @@ public class ShotgunMechanic : MonoBehaviour
                 mainProjectile = Instantiate(InstantiatedProjectile, this.transform.position, this.transform.rotation);
                 //mainProjectile.transform.rotation = Quaternion.LookRotation(hitAnywhere.point);
                 mainProjectile.GetComponent<Transform>().LookAt(hitAnywhere.point);
-                mainProjectile.GetComponent<Rigidbody>().AddForce(mainProjectile.transform.forward * ProjectileSpeed * projectileSpeedMultiplier + Camera.main.transform.InverseTransformVector(rb.velocity).x / 3 * Camera.main.transform.right, ForceMode.Impulse);
+                mainProjectile.GetComponent<Rigidbody>().AddForce(mainProjectile.transform.forward * ProjectileSpeed * projectileSpeedMultiplier + Camera.main.transform.InverseTransformVector(rb.velocity).x / 3 * Camera.main.transform.right, ForceMode.VelocityChange);
                 Destroy(hitEmpty);  
             }
         }
     }
-
-
-
-
-
-    public void Reload()
-    {
-        if (Ammo == 0  || Input.GetKeyDown(KeyCode.R) && Ammo <= maxAmmo)
-        {
-            //do animation
-        }
-    }
-
 }

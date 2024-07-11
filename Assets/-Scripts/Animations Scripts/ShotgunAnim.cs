@@ -37,35 +37,31 @@ public class ShotgunAnim : MonoBehaviour
 
         if (shotgunScript.Ammo == 0 && shotgunScript.Ammo != shotgunScript.maxAmmo /*&& shotgunAnims.GetBool("Idle") == true*/ || Input.GetKeyDown(KeyCode.R))
         {
-
             shotgunAnims.SetBool("reload", true);
 
-
             shotgunScript.canShoot = false;
-
         }
         /*else
         {
             shotgunAnims.SetTrigger("lever");
             shotgunAnims.SetTrigger("EndLoad");
         }*/
-
-
-
-
     }
 
     public void IdleWeapon()
     {
         shotgunScript.canShoot = true;
         shotgunAnims.SetTrigger("EndLoad");
-        shotgunAnims.ResetTrigger("Lever");
+        shotgunAnims.ResetTrigger("lever");
         shotgunAnims.SetBool("shoot", false);
-
-        //shotgunAnims.SetBool("reload", false);
-
-        // shotgunScript.Ammo = shotgunScript.maxAmmo;
     }
+
+    public void EndLoadCheck()
+    {
+        shotgunAnims.ResetTrigger("EndLoad");
+    }
+
+
 
     public void CantShoot()
     {

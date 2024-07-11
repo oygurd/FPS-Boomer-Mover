@@ -65,7 +65,7 @@ public class CheckProjectileHit : MonoBehaviour
         if (hitEnemy)
         {
             Destroy(gameObject);
-            float hitTimer = 0.01f;
+            
             ExplosionPoint = Instantiate(explosionPrefab, transform.position, transform.rotation);
             VFXanimationsController startExplosion = ExplosionPoint.GetComponent<VFXanimationsController>();
             startExplosion.ExplosionStart();
