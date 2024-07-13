@@ -21,8 +21,8 @@ TagManager:
   - PlayerCol
   - weapon + hands
   - Projectile
-  - 
-  - 
+  - Box
+  - WallNoRun
   - 
   - 
   - 

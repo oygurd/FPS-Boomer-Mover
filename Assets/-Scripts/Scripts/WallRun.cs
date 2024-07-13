@@ -19,6 +19,8 @@ public class WallRun : MonoBehaviour
     [Header("Wall Running")]
     [SerializeField] private float wallRunGravity;
     [SerializeField] private float wallRunJumpForce;
+    [SerializeField] LayerMask wallrunLayer;
+    [SerializeField] RaycastHit wallrunHitRay;
 
     [Header("Camera")]
     [SerializeField] private Camera cam;
@@ -42,7 +44,7 @@ public class WallRun : MonoBehaviour
 
     bool CanWallRun()
     {
-        return !Physics.Raycast(transform.position, Vector3.down, minimumJumpHeight);
+        return !Physics.Raycast(transform.position, Vector3.down, minimumJumpHeight , wallrunLayer);
     }
 
     private void Start()
@@ -54,9 +56,9 @@ public class WallRun : MonoBehaviour
 
     void CheckWall()
     {
-        wallLeft = Physics.Raycast(transform.position, -orientation.right.normalized, out leftWallHit, wallDistance);
-        wallRight = Physics.Raycast(transform.position, orientation.right.normalized, out rightWallHit, wallDistance);
-        wallBack = Physics.Raycast(transform.position, -orientation.forward, out wallBackHit, wallDistance);
+        wallLeft = Physics.Raycast(transform.position, -orientation.right.normalized, out leftWallHit, wallDistance, wallrunLayer);
+        wallRight = Physics.Raycast(transform.position, orientation.right.normalized, out rightWallHit, wallDistance, wallrunLayer);
+        wallBack = Physics.Raycast(transform.position, -orientation.forward, out wallBackHit, wallDistance, wallrunLayer);
 
 
     }
