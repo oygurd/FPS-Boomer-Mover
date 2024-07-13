@@ -91,7 +91,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438251249304987970}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 882055c66cc99ed45a36fde3045cab72, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5181760664774482822}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wallrun wall Scratched
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15.259143, y: 7.075, z: -23.160301}
-  m_LocalScale: {x: 2.8125029, y: 2.8125029, z: 2.8125029}
+  m_LocalScale: {x: 3.2742863, y: 3.2742863, z: 3.2742863}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8695271677360361149}

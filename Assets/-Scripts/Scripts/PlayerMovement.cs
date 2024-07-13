@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     [SerializeField] float airMultiplier = 0.4f;
     float movementMultiplier = 10f;
-    float maxSpeed = 25;
+    float maxSpeed = 40;
     public Vector3 currentVelocitySave;
 
     [Header("Sprinting")]
@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool OnSlope()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight / 2 + 0.5f))
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight / 2 + 1f))
         {
             if (slopeHit.normal != Vector3.up)
             {
@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        maxSpeed = maxSpeed += rb.velocity.magnitude / 1.5f;
+        //maxSpeed = maxSpeed += rb.velocity.magnitude / 1.5f;
 
         IncreasePlayerMass();
 
