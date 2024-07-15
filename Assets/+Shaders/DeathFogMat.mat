@@ -51,12 +51,12 @@ Material:
     - _BlendModePreserveSpecular: 1
     - _CastShadows: 1
     - _Cull: 2
-    - _Distance: 7.42
+    - _Distance: 5
     - _DstBlend: 10
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Size: -10
+    - _Size: -70
     - _SrcBlend: 5
     - _Surface: 1
     - _WorkflowMode: 1
@@ -65,7 +65,7 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _Main: {r: 0, g: 0.21038413, b: 1, a: 0}
-    - _Sub: {r: 1, g: 0.024799075, b: 0, a: 0}
+    - _Sub: {r: 0.8301887, g: 0.14720301, b: 0, a: 0}
     - _Tiling: {r: 10, g: 10, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &365492920638887170
