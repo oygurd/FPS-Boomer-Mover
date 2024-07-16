@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     [SerializeField] float airMultiplier = 0.4f;
     float movementMultiplier = 10f;
-    float maxSpeed = 40;
+    float maxSpeed = 35;
     public Vector3 currentVelocitySave;
 
     [Header("Sprinting")]
@@ -153,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
 
         moveDirection = orientation.forward * verticalMovement + orientation.right * horizontalMovement;
     }
-    void ControlSpeed()
+    void ControlSpeed()//sprint
     {
         if (Input.GetKey(sprintKey) && isGrounded)
         {

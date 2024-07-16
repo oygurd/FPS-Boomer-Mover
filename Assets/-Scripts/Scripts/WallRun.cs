@@ -97,7 +97,7 @@ public class WallRun : MonoBehaviour
     void StartWallRun()
     {
         rb.useGravity = true;
-
+        Physics.gravity = new Vector3(0, -15f, 0);
         rb.AddForce(Vector3.down * wallRunGravity, ForceMode.Force);
 
         //cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, wallRunfov, wallRunfovTime * Time.deltaTime);
