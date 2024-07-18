@@ -8,6 +8,8 @@ TagManager:
   - Critical
   - WeaponCam
   - CheckpointManager
+  - Tunnel
+  - staticWorldForProbes
   layers:
   - Default
   - TransparentFX
