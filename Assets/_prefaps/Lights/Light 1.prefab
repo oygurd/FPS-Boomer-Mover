@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3389102350767085679}
-  serializedVersion: 2
   m_LocalRotation: {x: 0.25965413, y: 0.657708, z: 0.657708, w: 0.25965413}
-  m_LocalPosition: {x: -1.2012551, y: 1.1235981, z: -0.25}
+  m_LocalPosition: {x: -0.62, y: 1.745, z: -0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 100469282388678820}
+  m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &2988447211838347015
 Light:
@@ -84,7 +84,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 9.498039, y: 10.12108}
   m_BounceIntensity: 1
@@ -178,7 +178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7635826562936255635, guid: f79a3f0cde61cab43aaa136d93890fdd,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 3d0f2dcaac24b73428386fd73452f24a, type: 2}
     - target: {fileID: 919132149155446097, guid: f79a3f0cde61cab43aaa136d93890fdd,
