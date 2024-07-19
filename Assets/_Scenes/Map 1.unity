@@ -3897,7 +3897,7 @@ PrefabInstance:
     - target: {fileID: 1826059858692003235, guid: e1d47598caeba5641ba99e3ca95bcea2,
         type: 3}
       propertyPath: raycastLayer.m_Bits
-      value: 960
+      value: 17345
       objectReference: {fileID: 0}
     - target: {fileID: 2074444915296836678, guid: e1d47598caeba5641ba99e3ca95bcea2,
         type: 3}
@@ -4137,7 +4137,7 @@ PrefabInstance:
     - target: {fileID: 8664335867696023533, guid: e1d47598caeba5641ba99e3ca95bcea2,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 29695
+      value: 95231
       objectReference: {fileID: 0}
     - target: {fileID: 8935145981943474175, guid: e1d47598caeba5641ba99e3ca95bcea2,
         type: 3}
