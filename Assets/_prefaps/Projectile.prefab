@@ -28,7 +28,6 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6638529031548414109}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.026, z: 0}
   m_LocalScale: {x: 0.13, y: 0.05, z: 0.19}
@@ -36,6 +35,7 @@ Transform:
   m_Children:
   - {fileID: 5617749258713502565}
   m_Father: {fileID: 0}
+  m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6749363585879121411
 MeshFilter:
@@ -159,11 +159,14 @@ MonoBehaviour:
     m_Bits: 512
   hitEnvironmentLayer:
     serializedVersion: 2
-    m_Bits: 448
+    m_Bits: 82368
   hitEnemy: 0
   hitEnvironment: 0
   enemyScript: {fileID: 0}
-  hitmarker: {fileID: 0}
+  hitmarker: {fileID: 3005766989929684765, guid: f31107903a01181489801894084a9f11,
+    type: 3}
+  _wallCrackDecal: {fileID: 8898925832042638602, guid: c92027d24c7768c48bba4ef9e0a00273,
+    type: 3}
 --- !u!1 &8287251666929109776
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,13 +191,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8287251666929109776}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 0.34672, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2462137723931585378}
+  m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &2913319505013351665
 TrailRenderer:

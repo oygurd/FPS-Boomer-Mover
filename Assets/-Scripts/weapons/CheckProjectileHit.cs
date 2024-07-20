@@ -29,6 +29,9 @@ public class CheckProjectileHit : MonoBehaviour
     [Header("UI")]
     [SerializeField] GameObject hitmarker;
 
+    [Header("Decals")]
+    [SerializeField] GameObject _wallCrackDecal;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,8 +89,10 @@ public class CheckProjectileHit : MonoBehaviour
 
             rb.velocity = new Vector3(0, 0, 0);
             self.enabled = false;
-            Collider[] enemyCol = Physics.OverlapSphere(transform.position, 4, enemyHitLayer);
 
+            Instantiate(_wallCrackDecal, transform.position, transform.rotation);
+
+            Collider[] enemyCol = Physics.OverlapSphere(transform.position, 4, enemyHitLayer);         
             foreach (Collider enemy in enemyCol)
             {
                 if (enemy.GetComponent<EnemyBehaviour>() /*&& sphereCastRad <= 4*/)
