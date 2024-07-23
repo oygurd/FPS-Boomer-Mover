@@ -30,7 +30,14 @@ public class TimerScript : MonoBehaviour
 
         _time.text = "Time:" + _timer.ToString("F3");
         
+    }
 
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            startTimer = true;
+        }
     }
 }

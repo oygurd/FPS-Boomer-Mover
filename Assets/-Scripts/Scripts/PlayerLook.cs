@@ -7,8 +7,8 @@ public class PlayerLook : MonoBehaviour
     [Header("References")]
     [SerializeField] WallRun wallRun;
 
-    [SerializeField] private float sensX = 100f;
-    [SerializeField] private float sensY = 100f;
+    [SerializeField] public float sensX = 100f;
+    [SerializeField] public float sensY = 100f;
 
     [SerializeField] Transform cam = null;
     [SerializeField] Transform orientation = null;
@@ -21,23 +21,28 @@ public class PlayerLook : MonoBehaviour
     float xRotation;
     float yRotation;
 
+
+    public bool _menuOn;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        _menuOn = false;
     }
 
     private void Update()
     {
-        mouseX = Input.GetAxisRaw("Mouse X");
-        mouseY = Input.GetAxisRaw("Mouse Y");
-         
-        yRotation += mouseX * sensX * multiplier;
-        xRotation -= mouseY * sensY * multiplier;
+       
+            mouseX = Input.GetAxisRaw("Mouse X");
+            mouseY = Input.GetAxisRaw("Mouse Y");
 
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            yRotation += mouseX * sensX * multiplier;
+            xRotation -= mouseY * sensY * multiplier;
 
-        cam.transform.rotation = Quaternion.Euler(xRotation, yRotation, wallRun.tilt);
-        orientation.transform.rotation = Quaternion.Euler(0, yRotation, 0);
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+            cam.transform.rotation = Quaternion.Euler(xRotation, yRotation, wallRun.tilt);
+            orientation.transform.rotation = Quaternion.Euler(0, yRotation, 0);
+       
     }
 }
