@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveDirection;
     Vector3 slopeMoveDirection;
 
-    Rigidbody rb;
+   public Rigidbody rb;
 
     RaycastHit slopeHit;
 
@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
 
         MyInput();
         ControlDrag();
-        ControlSpeed();
+        //ControlSpeed(); //jump disabled, not working with current movement, not intuitive for now.
 
         if (Input.GetKeyDown(jumpKey) && isGrounded)
         {

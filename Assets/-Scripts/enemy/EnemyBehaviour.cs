@@ -16,17 +16,18 @@ public class EnemyBehaviour : MonoBehaviour
 
     RaycastHit groundRay;
 
+    public HitMarker hitMarkerScript;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        hitMarkerScript = FindFirstObjectByType<HitMarker>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void FixedUpdate()
@@ -50,13 +51,24 @@ public class EnemyBehaviour : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Projectile"))
+        {
+            hitMarkerScript.HudHitMarker();
+        }
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Projectile"))
+        {
+            hitMarkerScript.HudHitMarker();
+        }
+    }
     public void GetHit()
     {
-        
-        
-            enemyHealth -= 75 * dmgMult;
-        
+        enemyHealth -= 75 * dmgMult;
     }
 
 

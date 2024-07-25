@@ -163,8 +163,7 @@ MonoBehaviour:
   hitEnemy: 0
   hitEnvironment: 0
   enemyScript: {fileID: 0}
-  hitmarker: {fileID: 3005766989929684765, guid: f31107903a01181489801894084a9f11,
-    type: 3}
+  hitMarkerScript: {fileID: 0}
   _wallCrackDecal: {fileID: 8898925832042638602, guid: c92027d24c7768c48bba4ef9e0a00273,
     type: 3}
 --- !u!1 &8287251666929109776

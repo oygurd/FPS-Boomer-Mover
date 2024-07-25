@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class menuControl : MonoBehaviour
 {
@@ -61,6 +62,9 @@ public class menuControl : MonoBehaviour
         _shotgunAnimScript.enabled = true;
     }
 
+
+
+   
     public void GoToMenu()
     {
         SceneManager.LoadScene("MainMenu");
@@ -71,5 +75,14 @@ public class menuControl : MonoBehaviour
         Application.Quit();
     }
 
+    public void PointerEnterAnimation()
+    {
+        transform.DOMoveX(263, 0.5f);
+    }
+    public void PointerExitAnimation()
+    {
+        transform.DOMoveX(240, 0.5f);
+    }
 
+    
 }

@@ -10,6 +10,8 @@ TagManager:
   - CheckpointManager
   - Tunnel
   - staticWorldForProbes
+  - HitMarker
+  - Projectile
   layers:
   - Default
   - TransparentFX

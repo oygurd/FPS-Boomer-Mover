@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 using TMPro;
 public class CheckProjectileHit : MonoBehaviour
 {
@@ -27,7 +29,9 @@ public class CheckProjectileHit : MonoBehaviour
     RaycastHit environmentHit;
 
     [Header("UI")]
-    [SerializeField] GameObject hitmarker;
+    [SerializeField] HitMarker hitMarkerScript;
+   
+
 
     [Header("Decals")]
     GameObject _decalHolder;
@@ -54,6 +58,7 @@ public class CheckProjectileHit : MonoBehaviour
 
         //HitSomething();
 
+        hitMarkerScript = FindFirstObjectByType<HitMarker>();
 
     }
 
@@ -77,6 +82,9 @@ public class CheckProjectileHit : MonoBehaviour
             lowerEnemyHp.GetHit();
 
 
+
+            hitMarkerScript.gameObject.SetActive(true);
+            
             hit.rigidbody.AddForce(Vector3.up * 20 + transform.forward * 5, ForceMode.Impulse);
 
         }
@@ -133,14 +141,13 @@ public class CheckProjectileHit : MonoBehaviour
             }
         }
     }
+   
 
+    
     private void FixedUpdate()
     {
         HitSomething();
     }
-
-
-
 
     private void OnDrawGizmos()
     {
