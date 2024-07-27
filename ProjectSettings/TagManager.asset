@@ -12,6 +12,7 @@ TagManager:
   - staticWorldForProbes
   - HitMarker
   - Projectile
+  - Timer+Menu
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 879045530659211615}
   - component: {fileID: 4397290496079882701}
   - component: {fileID: 4444920087374259737}
-  - component: {fileID: 1786961450997368430}
+  - component: {fileID: 347281725721668558}
   m_Layer: 12
   m_Name: Projectile
   m_TagString: Untagged
@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 5617749258713502565}
   m_Father: {fileID: 0}
-  m_RootOrder: -2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6749363585879121411
 MeshFilter:
@@ -102,7 +102,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 1024
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -135,7 +135,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &1786961450997368430
+--- !u!114 &347281725721668558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,28 +144,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 6638529031548414109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27ec65bc3a89a5046a5f04a813ac71c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 761a1b113939cbb4b9c5e5b1b842f734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplosionPoint: {fileID: 1966374318637261091, guid: 56a5b847da8b2f74598a033f179d3510,
-    type: 3}
-  explosionPrefab: {fileID: 8211712119534345075, guid: a54ee6f121472bc43818f941a3b0e26f,
-    type: 3}
-  groundSphereCheckRad: 0.05
-  sphereCastRad: 0.1
-  sphereCastMaxDis: 1
-  enemyHitLayer:
+  _playerRb: {fileID: 0}
+  _explosionRad: 10
+  _explosionForce: 15
+  _overSphereSize: 10
+  enemyLayer:
     serializedVersion: 2
     m_Bits: 512
-  hitEnvironmentLayer:
+  playerLayer:
     serializedVersion: 2
-    m_Bits: 82368
-  hitEnemy: 0
-  hitEnvironment: 0
-  enemyScript: {fileID: 0}
-  hitMarkerScript: {fileID: 0}
-  _wallCrackDecal: {fileID: 8898925832042638602, guid: c92027d24c7768c48bba4ef9e0a00273,
+    m_Bits: 32768
+  GroundsMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _explosionVfxHolder: {fileID: 8211712119534345075, guid: a54ee6f121472bc43818f941a3b0e26f,
     type: 3}
+  explosionVfxPoint: {fileID: 8287251666929109776}
 --- !u!1 &8287251666929109776
 GameObject:
   m_ObjectHideFlags: 0

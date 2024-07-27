@@ -77,12 +77,16 @@ public class menuControl : MonoBehaviour
 
     public void PointerEnterAnimation()
     {
-        transform.DOMoveX(263, 0.5f);
+        //transform.DOMoveX(263, 0.5f).SetUpdate(UpdateType.Late, true);
+        transform.DOBlendableLocalMoveBy(Vector2.right   * 20, 0.5f).SetUpdate(UpdateType.Late, true);
+        
     }
     public void PointerExitAnimation()
     {
-        transform.DOMoveX(240, 0.5f);
+        //transform.DOMoveX(240, 0.5f).SetUpdate(UpdateType.Late, true);
+        transform.DOBlendableLocalMoveBy(Vector2.left * 20, 0.5f).SetUpdate(UpdateType.Late, true);
+
     }
 
-    
+
 }

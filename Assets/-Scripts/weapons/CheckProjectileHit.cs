@@ -81,12 +81,9 @@ public class CheckProjectileHit : MonoBehaviour
             EnemyBehaviour lowerEnemyHp = hit.collider.GetComponent<EnemyBehaviour>();
             lowerEnemyHp.GetHit();
 
-
-
             hitMarkerScript.gameObject.SetActive(true);
             
-            hit.rigidbody.AddForce(Vector3.up * 20 + transform.forward * 5, ForceMode.Impulse);
-
+           hit.rigidbody.AddForce(Vector3.up * 20 + transform.forward * 5, ForceMode.Impulse);
         }
 
         if (hitEnvironment)
