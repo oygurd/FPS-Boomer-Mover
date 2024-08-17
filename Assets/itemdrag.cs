@@ -1,28 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class itemdrag : MonoBehaviour
-{
-
-    SpringJoint testSpring;
-    Collider coll;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        coll = GetComponent<Collider>();
-        testSpring = GetComponent<SpringJoint>();
-    }
-    private void OnMouseDrag()
-    {
-        Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        testSpring.connectedAnchor = cursorPos;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:af516c4f28af973ea4be35803fa7806691c12eeb2e31f554c227e6cb317c11e8
+size 587
