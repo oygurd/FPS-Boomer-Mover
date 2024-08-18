@@ -4423,6 +4423,18 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1379533993552121021}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51c08051078e2764aba03065f621fe56,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4888237068696018672}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51c08051078e2764aba03065f621fe56,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7161745001677649877}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51c08051078e2764aba03065f621fe56,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1963596677224150784}
   m_SourcePrefab: {fileID: 100100000, guid: 51c08051078e2764aba03065f621fe56, type: 3}
 --- !u!4 &253320864737759933 stripped
 Transform:
@@ -4531,6 +4543,67 @@ MonoBehaviour:
   - {fileID: 4191888323365841211}
   - {fileID: 7838373465707294367}
   - {fileID: 1001626433848113739}
+--- !u!114 &4888237068696018672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5779009956842786476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d8418b0b9634b1892b0268dd9c2743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneShape: 1
+  drawBones: 1
+  drawTripods: 0
+  boneSize: 1
+  tripodSize: 1
+  boneColor: {r: 0, g: 0, b: 1, a: 0.5}
+  m_Transforms:
+  - {fileID: 4375948061725927359}
+  - {fileID: 5855993610272700828}
+  - {fileID: 5613766174261627079}
+  - {fileID: 2738189375145535241}
+  - {fileID: 7321194194365202524}
+  - {fileID: 8477307715602075088}
+  - {fileID: 253320864737759933}
+  - {fileID: 376835034273908964}
+  - {fileID: 5711334869491455853}
+  - {fileID: 4191888323365841211}
+  - {fileID: 7838373465707294367}
+  - {fileID: 1001626433848113739}
+--- !u!114 &7161745001677649877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5779009956842786476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9ad15205a81bdc49b1886d7bcbc68b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1963596677224150784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5779009956842786476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273c07c45d8b30e46b3b4fa8658cadc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileModel: {fileID: 5503918869684410246, guid: ba64e6d74e46d5a46b551d8e8cc3362a,
+    type: 3}
+  _muzzle: {fileID: 2513975271247826863}
+  _force: 10
+  _multiplier: 0
+  _projectileWeight: 0
 --- !u!4 &5855993610272700828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 988232356022225505, guid: 51c08051078e2764aba03065f621fe56,
