@@ -1,26 +1,3 @@
-using System;
-using UnityEditor;
-using UnityEngine;
-
-namespace Plugins.Baedrick.ColoredHeaderCreator
-{
-	public class ColoredHeader : MonoBehaviour
-	{
-#if UNITY_EDITOR
-		public HeaderSettings headerSettings = new HeaderSettings();
-
-		private void OnValidate()
-		{
-			EditorApplication.delayCall += _OnValidate;
-		}
-		private void _OnValidate()
-		{
-			if (this == null) {
-				return;
-			}
-
-			EditorApplication.RepaintHierarchyWindow();
-		}
-#endif
-	}
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:ccfba5bd14ffeacf8a4123bc05898cb994d75dc4c88010e0987608db7faaec55
+size 477

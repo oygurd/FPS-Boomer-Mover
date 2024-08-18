@@ -1,25 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class HitMarker : MonoBehaviour
-{
-    public GameObject hitMarker;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public IEnumerator HudHitMarker()
-    {     
-        hitMarker.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
-        hitMarker.SetActive(false);
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:a491be6dbd281e5e5087dc1fc9bf7d71d14290685ded3becfba6dfe19227661b
+size 524

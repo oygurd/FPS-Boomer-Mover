@@ -1,35 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using TMPro;
-public class StopTimerGoNextLevel : MonoBehaviour
-{
-    public int level;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void NextLevel()
-    {
-        SceneManager.LoadScene("map" + level.ToString());
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            NextLevel();
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d354643f879dd3e312e8abe3bbf85a97ef1c3cfe1ea921af66cc029c92a4ee3b
+size 1319

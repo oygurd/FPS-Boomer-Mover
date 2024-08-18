@@ -148,18 +148,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerRb: {fileID: 0}
-  _explosionRad: 10
+  _explosionRad: 5
   _explosionForce: 15
   _overSphereSize: 10
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
-  playerLayer:
+  GroundLayer:
     serializedVersion: 2
-    m_Bits: 32768
+    m_Bits: 33792
   GroundsMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 91073
   _explosionVfxHolder: {fileID: 8211712119534345075, guid: a54ee6f121472bc43818f941a3b0e26f,
     type: 3}
   explosionVfxPoint: {fileID: 8287251666929109776}

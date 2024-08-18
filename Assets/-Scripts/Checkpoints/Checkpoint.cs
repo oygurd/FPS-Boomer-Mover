@@ -1,26 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Checkpoint : MonoBehaviour
-{
-    
-    [SerializeField] bool respawnAtMySpot = false;
-    [SerializeField] public Vector3 _checkpointPosition;
-    CheckpointsManager manager;
-    // Start is called before the first frame update
-    void Start()
-    {
-        _checkpointPosition = transform.position;
-        manager = GameObject.FindGameObjectWithTag("CheckpointManager").GetComponent<CheckpointsManager>();
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            manager._LastCheckpoint = transform.position;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:de35a605006c60c8b2656f90bc9ebe399fd9b38d11e739bbabc02f760f93ba22
+size 734

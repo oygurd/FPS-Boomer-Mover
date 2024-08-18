@@ -1,29 +1,3 @@
-﻿ using UnityEngine;
- using System.Collections;
- 
- public class PlayRandomSound : MonoBehaviour {
- 
-     public AudioSource randomSound;
-     public AudioClip[] audioSources;
-
-     public int clipDelay = 5;
- 
-     // Use this for initialization
-     void Start () {
- 
-         StartAudio ();
-     }
- 
- 
-     void StartAudio()
-     {
-         Invoke ("RandomSoundness", clipDelay);
-     }
- 
-     void RandomSoundness()
-     {
-         randomSound.clip = audioSources[Random.Range(0, audioSources.Length)];
-         randomSound.Play ();
-         StartAudio ();
-     }
- }
+version https://git-lfs.github.com/spec/v1
+oid sha256:7de511483660acdd773cf27b2f754b34f07193978fadd0cf5cd2d7bfcd11ae86
+size 598

@@ -1,18 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class PlayerDeathSpawn : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e1590cbeb58a9386f7c23ee4027e6e8160162ceb499f0e4e4bf842f3a62025d8
+size 318

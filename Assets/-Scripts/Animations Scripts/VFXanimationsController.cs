@@ -1,36 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class VFXanimationsController : MonoBehaviour
-{
-
-    [Header("Explosion")]
-    [SerializeField] Animator ExplosionEffect;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-    public void ExplosionStart()
-    {
-        ExplosionEffect.SetBool("explode", true);
-    }
-    public void ExplosionEnd()
-    {
-        ExplosionEffect.SetBool("explode", false);
-        Destroy(gameObject);
-    }
-
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:9a3a6136d9baa3d373405be66b7154fef51608dd3f6f640ec7ac6343b0cf294b
+size 962

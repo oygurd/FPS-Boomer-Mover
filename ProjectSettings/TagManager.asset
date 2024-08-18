@@ -13,6 +13,8 @@ TagManager:
   - HitMarker
   - Projectile
   - Timer+Menu
+  - ScoreManager
+  - EnemyManager
   layers:
   - Default
   - TransparentFX

@@ -1,17 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class MoveCamera : MonoBehaviour
-{
-    [SerializeField] Transform cameraPosition = null;
-
-    void Update()
-    {
-        transform.position = cameraPosition.position;
-    }
-    private void FixedUpdate()
-    {
-        transform.position = cameraPosition.position;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:837a3b812a8b6ed5869537b174979b3c7b7fb4bbb17641ff3137a97658cd957d
+size 380

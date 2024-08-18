@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 3444559937239156473}
   - component: {fileID: 1026474463641232598}
   - component: {fileID: 3473771541455180933}
-  m_Layer: 16
+  m_Layer: 7
   m_Name: GroundTile
   m_TagString: staticWorldForProbes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &560952643147687071
 Transform:

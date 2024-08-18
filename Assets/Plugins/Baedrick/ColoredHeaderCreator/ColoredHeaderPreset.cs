@@ -1,16 +1,3 @@
-﻿#if UNITY_EDITOR
-
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace Plugins.Baedrick.ColoredHeaderCreator
-{
-	[System.Serializable]
-	[CreateAssetMenu(fileName = "New Header Preset", menuName = "Colored Header Creator/Header Preset")]
-	public class ColoredHeaderPreset : ScriptableObject
-	{
-		public List<HeaderSettings> coloredHeaderPreset = new List<HeaderSettings>();
-	}
-}
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:dcace15ce793999ded7aed3cf20dba95f3c1b6c017139bb59706b279bf2c2dec
+size 413

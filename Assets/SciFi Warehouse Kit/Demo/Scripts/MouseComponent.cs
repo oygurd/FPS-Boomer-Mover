@@ -1,26 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class MouseComponent : MonoBehaviour
-{
-    public float mouseSensitivity = 100f;
-    public Transform playerBody;
-    float xRotation = 0f;
-
-    void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90, 90f);
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:6c75d9ad79c17623e49740ec31455e492fe354337730ab46904052ac12cf436e
+size 780
