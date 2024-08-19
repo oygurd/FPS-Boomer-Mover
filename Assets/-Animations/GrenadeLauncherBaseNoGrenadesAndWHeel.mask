@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GrenadeLauncherBaseNoGrenadesAndWHeel
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 1
+  - m_Path: Armature/Grenades holder
+    m_Weight: 0
+  - m_Path: Armature/Grenades holder/grenade 1
+    m_Weight: 0
+  - m_Path: Armature/Grenades holder/grenade 1/grenade 1_end
+    m_Weight: 0
+  - m_Path: Armature/Grenades holder/grenade 2
+    m_Weight: 0
+  - m_Path: Armature/Grenades holder/grenade 2/grenade 2_end
+    m_Weight: 0
+  - m_Path: 'Armature/Grenades holder/grenade 3 '
+    m_Weight: 0
+  - m_Path: Armature/Grenades holder/grenade 3 /grenade 3 _end
+    m_Weight: 0
+  - m_Path: Armature/Grenades holder/grenade 4
+    m_Weight: 0
+  - m_Path: Armature/Grenades holder/grenade 4/grenade 4_end
+    m_Weight: 0
+  - m_Path: Armature/Handle
+    m_Weight: 1
+  - m_Path: Armature/Handle/barrel
+    m_Weight: 0
+  - m_Path: Armature/Handle/barrel/Bone.002
+    m_Weight: 0
+  - m_Path: Armature/Handle/barrel/Bone.002/Bone.002_end
+    m_Weight: 0
+  - m_Path: Armature/Handle/Handle.001
+    m_Weight: 0
+  - m_Path: Armature/Handle/Handle.001/Handle.001_end
+    m_Weight: 0
+  - m_Path: Armature/HOLDER HOLDER
+    m_Weight: 0
+  - m_Path: Armature/HOLDER HOLDER/HOLDER HOLDER_end
+    m_Weight: 0
+  - m_Path: Grenade launcher
+    m_Weight: 0

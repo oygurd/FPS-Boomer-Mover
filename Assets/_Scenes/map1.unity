@@ -3115,7 +3115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionEffect: {fileID: 0}
-  _raybeamHolder: {fileID: 1526355885}
 --- !u!4 &296427794 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6415417656084713755, guid: ba559b7a87d30cc449af56cc2fb776e6,
@@ -4735,6 +4734,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963596677224150784, guid: e1d47598caeba5641ba99e3ca95bcea2,
+        type: 3}
+      propertyPath: _multiplier
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2147305996596864282, guid: e1d47598caeba5641ba99e3ca95bcea2,
         type: 3}
@@ -19048,12 +19052,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1512812563}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1526355885 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5952932683279821623, guid: e1d47598caeba5641ba99e3ca95bcea2,
-    type: 3}
-  m_PrefabInstance: {fileID: 427573017}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1530745734
 GameObject:
   m_ObjectHideFlags: 0
@@ -26799,7 +26797,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionEffect: {fileID: 0}
-  _raybeamHolder: {fileID: 1526355885}
 --- !u!114 &2001738332
 MonoBehaviour:
   m_ObjectHideFlags: 0
