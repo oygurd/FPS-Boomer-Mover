@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9205875996477622634
 MeshFilter:
@@ -120,9 +120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerRb: {fileID: 0}
-  _explosionRad: 0
-  _explosionForce: 0
-  _overSphereSize: 0
+  _explosionRad: 5
+  _explosionForce: 15
+  _overSphereSize: 12
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
