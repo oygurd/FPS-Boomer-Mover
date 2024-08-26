@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5903454433280271781}
   - component: {fileID: 8351877006955744153}
   - component: {fileID: 1182172435260375752}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Grenade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ MonoBehaviour:
     m_Bits: 33792
   GroundsMask:
     serializedVersion: 2
-    m_Bits: 25537
+    m_Bits: 91073
   _explosionVfxHolder: {fileID: 3829486112447012207, guid: 8bb5ca7499cf3e445b0ac696e9abef07,
     type: 3}
   explosionVfxPoint: {fileID: 1966374318637261091, guid: 56a5b847da8b2f74598a033f179d3510,
