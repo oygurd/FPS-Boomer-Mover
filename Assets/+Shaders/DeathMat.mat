@@ -76,5 +76,5 @@ Material:
     m_Colors:
     - _Main: {r: 0.6132076, g: 0, b: 0, a: 0}
     - _Sub: {r: 0.49056602, g: 0.013754186, b: 0, a: 0}
-    - _Tiling: {r: 6, g: 6, b: 0, a: 0}
+    - _Tiling: {r: 0, g: 0.001, b: 0, a: 0}
   m_BuildTextureStacks: []
