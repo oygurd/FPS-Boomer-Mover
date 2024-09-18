@@ -15,6 +15,7 @@ TagManager:
   - Timer+Menu
   - ScoreManager
   - EnemyManager
+  - CinemachineTarget
   layers:
   - Default
   - TransparentFX
@@ -33,7 +34,7 @@ TagManager:
   - WallNoRun
   - Player
   - RoofLighted
-  - 
+  - GrapplePoint
   - 
   - 
   - 
