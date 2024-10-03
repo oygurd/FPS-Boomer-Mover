@@ -84,12 +84,12 @@ Material:
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
-    - _grad_2_size: 5
+    - _grad_2_size: 4.95
     - _size: 5.67
     - _size_1: 11
-    - _speed: 4.4
+    - _speed: 0.42
     m_Colors:
-    - _emission_color: {r: 0, g: 57.319817, b: 126.50716, a: 1}
+    - _emission_color: {r: 0, g: 7.164977, b: 15.813394, a: 0}
     - _gradient_2_offset_time: {r: 0, g: 0.1, b: 0, a: 0}
-    - _voronoi_speed: {r: -0.13, g: 0.85, b: 0, a: 0}
+    - _voronoi_speed: {r: -0.13, g: 0.37, b: 0, a: 0}
   m_BuildTextureStacks: []
