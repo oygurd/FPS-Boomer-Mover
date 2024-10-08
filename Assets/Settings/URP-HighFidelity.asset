@@ -91,8 +91,8 @@ MonoBehaviour:
     serializedBounds:
     - sceneGUID: 006b0a8bf8a4a3f429539e60be642a23
       bounds:
-        m_Center: {x: 184.95001, y: 41.850002, z: -33.750004}
-        m_Extent: {x: 41.850006, y: 41.850002, z: 1.3500023}
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 2.7, y: 2.7, z: 2.7}
     - sceneGUID: 5ebf8bf312111db47ab65bccc38aa48a
       bounds:
         m_Center: {x: 0, y: 0, z: 0}

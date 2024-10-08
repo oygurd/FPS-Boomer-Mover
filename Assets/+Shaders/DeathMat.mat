@@ -61,20 +61,25 @@ Material:
     - _AlphaClip: 1
     - _AlphaToMask: 0
     - _Blend: 0
+    - _BlendModePreserveSpecular: 1
     - _CastShadows: 1
     - _Cull: 2
-    - _Distance: 2.3
+    - _Distance: 1.19
     - _DstBlend: 10
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Size: -69.23
+    - _ReceiveShadows: 1
+    - _Size: 63.22
     - _SrcBlend: 5
     - _Surface: 1
+    - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 1
     - _ZWriteControl: 1
+    - _screenpos_range: 1
     m_Colors:
-    - _Main: {r: 0.6132076, g: 0, b: 0, a: 0}
-    - _Sub: {r: 0.49056602, g: 0.013754186, b: 0, a: 0}
+    - _Main: {r: 0.5754717, g: 0.16558382, b: 0.19238155, a: 0}
+    - _Sub: {r: 10.35576, g: 2.626053, b: 0.9281103, a: 0}
     - _Tiling: {r: 0, g: 0.001, b: 0, a: 0}
+    - _sccreenpos_color: {r: 0.7515511, g: 0.56059986, b: 1.1107212, a: 0}
   m_BuildTextureStacks: []
