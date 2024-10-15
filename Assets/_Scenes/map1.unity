@@ -94,8 +94,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: c1b3c28fae83c6744b0ebe4ee0de846f,
-    type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: d7a50022ab7172146ba95d2e9108c350,
     type: 2}
 --- !u!196 &4
@@ -24142,13 +24141,7 @@ MonoBehaviour:
   cellSharedDataAsset: {fileID: 4900000, guid: eeb1e47c385f9d843a8bf5f18472c828, type: 3}
   cellSupportDataAsset: {fileID: 4900000, guid: b3684829f9ae04b40911be1f46dc5f8b,
     type: 3}
-  serializedScenarios:
-  - scenario: Default
-    data:
-      sceneHash: 1971500355
-      cellDataAsset: {fileID: 4900000, guid: 1a884a624f26ac746b45f04c6ffdb9d7, type: 3}
-      cellOptionalDataAsset: {fileID: 4900000, guid: c649f0fcf773ba440b75efd192949573,
-        type: 3}
+  serializedScenarios: []
 --- !u!4 &772426164
 Transform:
   m_ObjectHideFlags: 1
@@ -56046,16 +56039,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2636699193783923106, guid: ba559b7a87d30cc449af56cc2fb776e6,
-        type: 3}
-      propertyPath: m_Range
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 2636699193783923106, guid: ba559b7a87d30cc449af56cc2fb776e6,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 2491.1
-      objectReference: {fileID: 0}
     - target: {fileID: 5927850857822587809, guid: ba559b7a87d30cc449af56cc2fb776e6,
         type: 3}
       propertyPath: m_Name
