@@ -4777,7 +4777,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 95df20132efc7b044aeb14631198c2f3, type: 3}
+  - {fileID: 2100000, guid: 38ccd72eb43b6c84c8e81fba1b93eac5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4839,7 +4839,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e2292a7d2e272eb4f9737d793a7d0bde,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2292a7d2e272eb4f9737d793a7d0bde,
         type: 3}
